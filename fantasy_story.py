@@ -7,16 +7,22 @@ import random
 HEROES = ["Mira the apprentice mage", "Thorn the wandering knight", "Pip the fearless fox"]
 PLACES = ["the Moonlit Forest", "the ruins of Emberfall", "a village above the clouds"]
 COMPANIONS = ["a talkative raven", "a tiny dragon with hiccups", "an old map that gave advice"]
-TROUBLES = [
-    "the moon had vanished from the sky",
-    "a sleeping giant blocked the only bridge",
-    "the village well had turned into starlight",
-]
-MAGIC = ["a silver bell", "a lantern full of blue fire", "a seed that glowed like sunrise"]
-SOLUTIONS = [
-    "rang it once, and the darkness politely stepped aside",
-    "shared a clever riddle, which made the giant laugh and move",
-    "planted it beneath the old oak, and a new moonflower bloomed",
+ADVENTURES = [
+    (
+        "the moon had vanished from the sky",
+        "a silver bell",
+        "rang it once, and the moon returned to its place",
+    ),
+    (
+        "a sleeping giant blocked the only bridge",
+        "a lantern full of blue fire",
+        "held it high, revealing a hidden path around the giant",
+    ),
+    (
+        "the village well had turned into starlight",
+        "a seed that glowed like sunrise",
+        "planted it beside the well, and a moonflower restored the water",
+    ),
 ]
 ENDINGS = [
     "From then on, they kept a place at the table for unexpected magic.",
@@ -31,9 +37,7 @@ def generate_story(rng=None):
     hero = chooser.choice(HEROES)
     place = chooser.choice(PLACES)
     companion = chooser.choice(COMPANIONS)
-    trouble = chooser.choice(TROUBLES)
-    magic = chooser.choice(MAGIC)
-    solution = chooser.choice(SOLUTIONS)
+    trouble, magic, solution = chooser.choice(ADVENTURES)
     ending = chooser.choice(ENDINGS)
 
     return (
